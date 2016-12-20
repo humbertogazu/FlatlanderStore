@@ -1,13 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="gemStore">
 <head>
+	<meta charset="UTF-8">
 	<title>Flatlanders Store</title>
-	<link rel="stylesheet" type="text/css" href="
-	css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
+
 </head>
 <body>
+
+	<!--<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, pariatur. Totam doloribus architecto itaque, ducimus at perferendis, inventore dolores deleniti mollitia, pariatur libero fugiat facere fuga, eum amet nemo dolore.</h1>
 	
-<script type="text/javascript" src="js/angular.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<p> I am {{15 + 10}}</p>-->
+
+	<div class='container' ng-controller="StoreController as store">
+		<div class="list-group">
+			<div class="list-group-item" 
+			ng-repeat="product in store.products | orderBy: 'price'">
+				<!--<h3>
+					{{product.name}}
+					<em class="pull-right">{{product.price | currency}}</em>
+				</h3>-->
+				<!--<h3 ng-include="product-title.html"></h3>
+				<product-title></product-title>-->
+				<h3 product-title></h3>
+				<!--<img class="center-block" ng-src="{{product.images[0].url}}" alt="">-->
+				
+				<!--<button ng-show="!product.canPurchase">Add to Cart</button>-->
+
+				<!--<div class="row">
+					<div class="col-sm-6 col-md-3">
+						<a href="" class="thumnail">
+							<img ng-repeat="image in product.images"
+							ng-src="{{image.url}}" class="image-responsive">
+						</a>
+					</div>
+				</div>-->
+
+				<div class="" ng-controller="GalleryController as gallery" ng-show="product.images.length">
+				<div class="img-wrap">
+					<img class="center-block" ng-src="{{product.images[gallery.current].url}}">
+					
+				</div>
+				<ul class="img-thumbnails clearfix">
+					<li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+						<img class="center-block" ng-src="{{image.url}}" ng-click="gallery.setCurrent(image.id)" alt="">
+					</li>
+					
+				</ul>	
+				</div>
+
+				<product-panels></product-panels>
+				
+			</div>
+				
+		</div>
+	</div>
+
+	<script src="js/angular.min.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>-->
+	<script src="js/app.js"></script>
+	<script src="js/products.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
 </body>
 </html>

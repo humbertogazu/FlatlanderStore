@@ -1,0 +1,6 @@
+(funcion(){
+	var gem = {
+	name: "Azurite",
+	price: ""
+	}
+})
